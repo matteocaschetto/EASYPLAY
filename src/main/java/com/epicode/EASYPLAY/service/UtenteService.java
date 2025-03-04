@@ -19,6 +19,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @Transactional
 public class UtenteService {
@@ -105,5 +107,9 @@ public class UtenteService {
         utente.setCognome(request.getCognome());
         utente.setAvatar("https://www.fotoarreda.com/quadro-su-tela/stampa/personalizzata/immagine/790443592_1-1.html");
         return utente;
+    }
+
+    public Optional<Utente> findById(Long id){
+        return utenteRepo.findById(id);
     }
 }
